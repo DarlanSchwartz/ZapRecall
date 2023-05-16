@@ -64,7 +64,7 @@ export default function RecallScreen(props)
                 <h1>ZapRecall</h1>
             </RecallWindowLogo>
             <Recalls>
-                {props.cards.map((obj,i) => <Recall key={i} state = {obj.state} answer= {obj.answer} question = {obj.question} open = {obj.open} turned = {obj.turned} index = {i} setRecall = {(index,value) =>props.setRecall(index,value)} setTurned = {(index,value) => props.setTurned(index,value)} setState={(index,value) => props.setState(index,value)}></Recall>)}
+                {props.cards.map((obj,i) => <Recall key={i} done = {obj.done} state = {obj.state} answer= {obj.answer} question = {obj.question} open = {obj.open} turned = {obj.turned} index = {i} setRecall = {(index,value) =>props.setRecall(index,value)} setTurned = {(index,value) => props.setTurned(index,value)} setState={(index,value) => props.setState(index,value)}></Recall>)}
             </Recalls>
         </RecallWindow>
 
