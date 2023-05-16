@@ -5,10 +5,9 @@ const WelcomeScreen = styled.div`
     display: flex;
     justify-content:  center;
     flex-direction: column;
-    background-color: rgba(251, 107, 107, 1);
     color: white;
     align-items: center;
-    height: 100vh;
+    height: 100svh;
     width: 100%;
 
     button{
