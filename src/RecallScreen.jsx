@@ -2,25 +2,15 @@ import styled from "styled-components";
 import logo from './assets/logo.png';
 import Recall from "./Recall.jsx";
 
-const cards = [
-	{ question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
-	{ question: "O React é __", answer: "Uma biblioteca JavaScript para construção de interfaces" },
-	{ question: "Componentes devem iniciar com __", answer: "Letra maiúscula" },
-	{ question: "Podemos colocar __ dentro do JSX", answer: "expressões" },
-	{ question: "O ReactDOM nos ajuda __", answer: "Interagindo com a DOM para colocar componentes React na mesma" },
-	{ question: "Usamos o npm para __", answer: "Gerenciar os pacotes necessários e suas dependências" },
-	{ question: "Usamos props para __", answer: "Passar diferentes informações para componentes" },
-	{ question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
-]
-
 const RecallWindow = styled.div`
 
     display:  flex;
     position: relative;
     flex-direction:  column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start;
+    height: 100svh;
+    padding-bottom: 40px;
 `;
 
 const RecallWindowLogo = styled.div`
@@ -31,10 +21,7 @@ const RecallWindowLogo = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 50%;
-    top: 48px;
-    transform: translateX(-50%);
+    margin-top: 50px;
 
     img{
         width: 52px;
@@ -64,10 +51,8 @@ const Recalls = styled.div `
     gap: 25px;
     align-items: center;
     justify-content: center;
-    margin-top: 400px;
+    margin-top: 54px;
 `;
-
-// {cards.map((obj,index) => Recall(...obj,index))}
 
 export default function RecallScreen(props)
 {
@@ -79,9 +64,8 @@ export default function RecallScreen(props)
                 <h1>ZapRecall</h1>
             </RecallWindowLogo>
             <Recalls>
-                {cards.map((obj,index) => Recall({...obj,index}))}
+                {props.cards.map((obj,i) => <Recall key={i} state = {obj.state} answer= {obj.answer} question = {obj.question} open = {obj.open} turned = {obj.turned} index = {i} setRecall = {(index,value) =>props.setRecall(index,value)} setTurned = {(index,value) => props.setTurned(index,value)} setState={(index,value) => props.setState(index,value)}></Recall>)}
             </Recalls>
-            
         </RecallWindow>
 
     );
