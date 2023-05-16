@@ -9,8 +9,9 @@ const RecallWindow = styled.div`
     flex-direction:  column;
     align-items: center;
     justify-content: flex-start;
-    height: 100svh;
+    height: auto;
     padding-bottom: 40px;
+    width: 100%;
 `;
 
 const RecallWindowLogo = styled.div`
@@ -52,7 +53,8 @@ const Recalls = styled.div `
     align-items: center;
     justify-content: center;
     margin-top: 54px;
-`;
+    width: 100%;
+    `;
 
 export default function RecallScreen(props)
 {

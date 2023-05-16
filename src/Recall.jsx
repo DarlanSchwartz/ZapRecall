@@ -7,7 +7,8 @@ import PlayIcon from './assets/seta_play.png'
 
 const RecalComponent = styled.div`
 
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     min-height: ${(props) => props.open ? '131px' : '65px'};
     background: ${(props) => props.open ? '#FFFFD5' : '#FFFFFF'};

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import GlobalStyle from './globalStyles';
 import Welcome from './Welcome.jsx';
 import RecallScreen from './RecallScreen';
+import CounterQuestions from './CounterQuestions';
 
 const cards = [
 	{ question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript", state:0 , open: false, turned : false, done:false},
@@ -19,6 +20,7 @@ export default function App() {
 
   const [recallStarted , setRecallStarted] = useState(false);
   const [currentCards, setCurrentCards] = useState([...cards]);
+  const [answeredCards, setAnsweredCards] = useState ([]);
 
   function SetRecallOpen(recallIndex, value)
   {
@@ -46,6 +48,7 @@ export default function App() {
     newCards[recallIndex].turned = false;
     newCards[recallIndex].open = false;
     newCards[recallIndex].done = true;
+    setAnsweredCards([...answeredCards,{state:value}])
     setCurrentCards(newCards);
   }
 
@@ -54,6 +57,7 @@ export default function App() {
         <GlobalStyle/>
         {!recallStarted && <Welcome startRecallAction = {setRecallStarted}></Welcome>}
         {recallStarted && <RecallScreen cards = {currentCards} setRecall={(index,value) =>SetRecallOpen(index,value)} setTurned={(index,value)=> SetRecallTurned(index,value)} setState= {(index,value) => SetRecallState(index,value)}/>}
+        {recallStarted && <CounterQuestions length = {currentCards.length} cards = {answeredCards}/>}
     </Fragment>
   )
 }
