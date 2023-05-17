@@ -10,7 +10,7 @@ const RecallWindow = styled.div`
     align-items: center;
     justify-content: flex-start;
     height: auto;
-    padding-bottom: 40px;
+    margin-bottom: ${(props) => props.answers == props.questions ? '180px' : '90px'};
     width: 100%;
 `;
 
@@ -59,8 +59,7 @@ const Recalls = styled.div `
 export default function RecallScreen(props)
 {
     return(
-
-        <RecallWindow>
+        <RecallWindow answers = {props.answers} questions ={props.cards.length}>
             <RecallWindowLogo>
                 <img src={logo}/>
                 <h1>ZapRecall</h1>

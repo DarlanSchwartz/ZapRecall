@@ -42,7 +42,7 @@ const RecalComponent = styled.div`
         width: 87px;
         height: 19px;
 
-        font-family: 'Recursive';
+        font-family: 'Recursive', sans-serif;
         font-style: normal;
         font-weight: 700;
         font-size: 16px;
@@ -54,7 +54,7 @@ const RecalComponent = styled.div`
     }
 
     p{
-        font-family: 'Recursive';
+        font-family: 'Recursive', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 18px;
@@ -78,7 +78,7 @@ const RecalComponent = styled.div`
         height: 38px;
         width: 85px;
         color: white;
-        font-family: 'Recursive';
+        font-family: 'Recursive', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 12px;

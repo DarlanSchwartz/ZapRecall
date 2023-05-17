@@ -56,8 +56,8 @@ export default function App() {
     <Fragment>
         <GlobalStyle/>
         {!recallStarted && <Welcome startRecallAction = {setRecallStarted}></Welcome>}
-        {recallStarted && <RecallScreen cards = {currentCards} setRecall={(index,value) =>SetRecallOpen(index,value)} setTurned={(index,value)=> SetRecallTurned(index,value)} setState= {(index,value) => SetRecallState(index,value)}/>}
-        {recallStarted && <CounterQuestions length = {currentCards.length} cards = {answeredCards}/>}
+        {recallStarted && <RecallScreen cards = {currentCards} answers={answeredCards.length} setRecall={(index,value) =>SetRecallOpen(index,value)} setTurned={(index,value)=> SetRecallTurned(index,value)} setState= {(index,value) => SetRecallState(index,value)}/>}
+        {recallStarted && <CounterQuestions length = {currentCards.length} cards = {answeredCards} allCards ={currentCards}/>}
     </Fragment>
   )
 }
