@@ -106,6 +106,7 @@ export default function Recall(props)
     let icon = PlayIcon;
     let tColor = "#333333";
     let tDecoration = 'none';
+    let dataTestIcon ="play-btn";
 
     
     if(props.state == 1)
@@ -113,27 +114,30 @@ export default function Recall(props)
         icon = CorrectIcon;
         tColor = "#2FBE34";
         tDecoration = 'line-through';
+        dataTestIcon = "zap-icon";
     }
     else if(props.state == 2)
     {
         icon = AlmostIcon;
         tColor = "#FF922E";
         tDecoration = 'line-through';
+        dataTestIcon = "partial-icon";
     }
     else if(props.state == 3)
     {
         icon = WrongIcon;
         tColor = "#FF3030";
         tDecoration = 'line-through';
+        dataTestIcon = "no-icon";
     }
     
     return(
-        <RecalComponent textColor = {tColor} textDecoration = {tDecoration} open = {props.open} turned = {props.turned} >
-            {!props.open && <h1>Pergunta {props.index + 1}</h1>}
-            {!props.open && <img onClick={() =>props.setRecall(props.index,true)} className="open-btn" src={icon}/>}
-            {(props.open && !props.turned) && <img onClick={() => props.setTurned(props.index,true)} className="turn-btn" src={TurnIcon}/>}
-            {props.open && <p>{props.turned ? props.answer : props.question}</p>}
-            {props.turned && <div className="choices"><button onClick={()=> props.setState(props.index,3)} className="didnt-remember-btn">Não Lembrei</button><button  onClick={()=> props.setState(props.index,2)} className="almost-remember-btn">Quase não Lembrei</button><button  onClick={()=> props.setState(props.index,1)}className="zap-btn">Zap!</button></div>}
+        <RecalComponent data-test="flashcard" textColor = {tColor} textDecoration = {tDecoration} open = {props.open} turned = {props.turned} >
+            {!props.open && <h1 data-test="flashcard-text">Pergunta {props.index + 1}</h1>}
+            {!props.open && <img data-test={dataTestIcon} onClick={() =>props.setRecall(props.index,true)} className="open-btn" src={icon}/>}
+            {(props.open && !props.turned) && <img data-test="turn-btn" onClick={() => props.setTurned(props.index,true)} className="turn-btn" src={TurnIcon}/>}
+            {props.open && <p data-test="flashcard-text">{props.turned ? props.answer : props.question}</p>}
+            {props.turned && <div className="choices"><button data-test="no-btn" onClick={()=> props.setState(props.index,3)} className="didnt-remember-btn">Não Lembrei</button><button  data-test="partial-btn" onClick={()=> props.setState(props.index,2)} className="almost-remember-btn">Quase não Lembrei</button><button  data-test="zap-btn"  onClick={()=> props.setState(props.index,1)}className="zap-btn">Zap!</button></div>}
         </RecalComponent>
     );
 }

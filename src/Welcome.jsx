@@ -67,7 +67,7 @@ export default function Welcome(props)
                 <img src={logo}/>
                 <h1>ZapRecall</h1>
             </Logo>
-            <button onClick={() => props.startRecallAction(true)} >Inciar Recall!</button>
+            <button data-test="start-btn" onClick={() => props.startRecallAction(true)} >Inciar Recall!</button>
         </WelcomeScreen>
     );
 }

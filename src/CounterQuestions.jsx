@@ -106,9 +106,9 @@ export default function CounterQuestions(props)
 
 
     return(
-        <CounterContainer>
+        <CounterContainer data-test="footer">
             {(questionsAmount == questionsAnswered) && 
-                <div className="finish-message">
+                <div className="finish-message" data-test="finish-text">
                     <div className="finish-title">
                         <img src={congratsImage}/>
                         <h1 className="finish-text">{congratsText}</h1>
@@ -121,15 +121,15 @@ export default function CounterQuestions(props)
                 {props.cards.map((card,index) => {
                     if(card.state == 1)
                     {
-                        return <img key={index} src={CorrectIcon}/>;
+                        return <img data-test="zap-icon" key={index} src={CorrectIcon}/>;
                     }
                     else if(card.state == 2)
                     {
-                        return <img key={index} src={AlmostIcon}/>;
+                        return <img data-test="partial-icon" key={index} src={AlmostIcon}/>;
                     }
                     else if(card.state == 3)
                     {
-                        return <img key={index} src={WrongIcon}/>;
+                        return <img data-test="no-icon" key={index} src={WrongIcon}/>;
                     }
                 })}
             </CounterIcons>
