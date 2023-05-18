@@ -38,29 +38,15 @@ const RecalComponent = styled.div`
         cursor: pointer;
     }
 
-    h1{
-        width: 87px;
-        height: 19px;
-
-        font-family: 'Recursive', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-
-        color: ${(props) =>props.textColor};
-        text-decoration: ${(props) => props.textDecoration};
-        margin-left: 15px;
-    }
-
     p{
         font-family: 'Recursive', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 18px;
         line-height: 22px;
-        color: #333333;
-        margin: 16px;
+        color: ${(props) =>props.textColor};
+        text-decoration: ${(props) => props.textDecoration};
+        margin: 19px;
         align-self: flex-start;
     }
 
@@ -133,10 +119,9 @@ export default function Recall(props)
     
     return(
         <RecalComponent data-test="flashcard" textColor = {tColor} textDecoration = {tDecoration} open = {props.open} turned = {props.turned} >
-            {!props.open && <h1 data-test="flashcard-text">Pergunta {props.index + 1}</h1>}
+            {props.open ? <p data-test="flashcard-text">{props.turned ? props.answer : props.question}</p> : <p>Pergunta {props.index + 1}</p>}
             {!props.open && <img data-test={dataTestIcon} onClick={() =>props.setRecall(props.index,true)} className="open-btn" src={icon}/>}
             {(props.open && !props.turned) && <img data-test="turn-btn" onClick={() => props.setTurned(props.index,true)} className="turn-btn" src={TurnIcon}/>}
-            {props.open && <p data-test="flashcard-text">{props.turned ? props.answer : props.question}</p>}
             {props.turned && <div className="choices"><button data-test="no-btn" onClick={()=> props.setState(props.index,3)} className="didnt-remember-btn">Não Lembrei</button><button  data-test="partial-btn" onClick={()=> props.setState(props.index,2)} className="almost-remember-btn">Quase não Lembrei</button><button  data-test="zap-btn"  onClick={()=> props.setState(props.index,1)}className="zap-btn">Zap!</button></div>}
         </RecalComponent>
     );
