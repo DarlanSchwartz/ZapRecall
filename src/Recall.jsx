@@ -11,7 +11,7 @@ const RecalComponent = styled.div`
     max-width: 300px;
     height: auto;
     min-height: ${(props) => props.open ? '131px' : '65px'};
-    background: ${(props) => props.open ? '#FFFFD5' : '#FFFFFF'};
+    background-color: ${(props) => props.open ? '#FFFFD5' : '#FFFFFF'};
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     display:  flex;
@@ -118,7 +118,7 @@ export default function Recall(props)
     }
     
     return(
-        <RecalComponent data-test="flashcard" textColor = {tColor} textDecoration = {tDecoration} open = {props.open} turned = {props.turned} >
+        <RecalComponent data-test="flashcard" textColor={tColor} textDecoration={tDecoration} open={props.open} turned={props.turned} >
             {props.open ? <p data-test="flashcard-text">{props.turned ? props.answer : props.question}</p> : <p data-test="flashcard-text">Pergunta {props.index + 1}</p>}
             {!props.open && <img data-test={dataTestIcon} onClick={() =>props.setRecall(props.index,true)} className="open-btn" src={icon}/>}
             {(props.open && !props.turned) && <img data-test="turn-btn" onClick={() => props.setTurned(props.index,true)} className="turn-btn" src={TurnIcon}/>}
