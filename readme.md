@@ -6,12 +6,6 @@
 # Demo
 [You can test it HERE](https://projeto9-zaprecall-pearl.vercel.app/)
 
-# Tech Used
-For this project i used
-
-- React
-- Vite
-- Styled Components
 
 # Preview
 <div align="center">
@@ -26,6 +20,14 @@ For this project i used
 </div>
 </br>
 </br>
+
+# Tech Used
+For this project i used:
+
+- React
+- Vite
+- Styled Components
+
 
 # Installation and Running
 To run ZapRecall on your local machine or server, follow these steps:
